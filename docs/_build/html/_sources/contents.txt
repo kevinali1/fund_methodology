@@ -1,0 +1,35 @@
+.. _contents:
+
+Valuehorizon Fund Methodology Contents
+=======================================
+
+New to Valuehorizon? Or to Web development in general? Well, you came to the right
+place: read this material to quickly get up and running.
+
+.. toctree::
+    :maxdepth: 2
+
+    introduction
+    overview
+    calculation
+    benchmark
+    risks
+    veracity
+    technology
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Calculation of Returns &mdash; Fund Methodology 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Fund Methodology 1.0 documentation" href="index.html" />
+    <link rel="next" title="Benchmarking" href="benchmark.html" />
+    <link rel="prev" title="Overview of Mutual Funds" href="overview.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="benchmark.html" title="Benchmarking"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Overview of Mutual Funds"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="calculation-of-returns">
+<h1>Calculation of Returns<a class="headerlink" href="#calculation-of-returns" title="Permalink to this headline">¶</a></h1>
+<p>Valuehorizon calculates three returns for each fund - the Holding Period Return, the Effective Annualised Return and the Bond Equivalent Return. These returns are calculated for each calendar month, quarter and year.</p>
+<div class="section" id="holding-period-return">
+<h2>Holding Period Return<a class="headerlink" href="#holding-period-return" title="Permalink to this headline">¶</a></h2>
+<p>The holding period return (also known as “HPR” or “unannualised total return”) over a specified time period is the return an investor would enjoy if he/she invested in the fund and reinvested all distributions during the period on their reinvestment dates. It also includes any unreinvested accrued distributions at the end of the period. This return is not load-adjusted. Furthermore, although the HPR is considered a bid-bid return, the distributions are invested at their applicable offer prices.</p>
+<p>It is calculated as follows:</p>
+<p>IMAGE HERE</p>
+<p>Where Pend is the fund bid price at the end of the period, Pstart is the fund bid price at the start of the period, Ni is the number of shares as at time i, Di is the fund’s ith distribution during the period, Pi is the fund’s offer price on the applicable distribution’s reinvestment date and Daccrued is the total outstanding accrued and unreinvested distributions.</p>
+<p>From a practical perspective, the holding period return is mathematically equivalent to the return an investor would calculate using the opening and closing values on his/her fund account statement during the period assuming no funds are withdrawn or deposited and all distributions are reinvested by default.</p>
+<p>Mathematically, this can be expressed as:</p>
+<p>IMAGE HERE</p>
+<p>Where Vopen is the fund account’s opening value and Vclose is the fund account’s closing value.</p>
+</div>
+<div class="section" id="effective-annualised-return">
+<h2>Effective Annualised Return<a class="headerlink" href="#effective-annualised-return" title="Permalink to this headline">¶</a></h2>
+<p>One limitation of the holding period return is that it does not allow a fair comparison of two returns of different period lengths. The effective annualised return (also known as “EAR” or “annualised total return”) solves this problem by annualising the holding period return.</p>
+<p>Given the number of days in the year n, and the number of days in the period t, it is calculated as follows:</p>
+<p>IMAGE HERE</p>
+</div>
+<div class="section" id="bond-equivalent-return">
+<h2>Bond Equivalent Return<a class="headerlink" href="#bond-equivalent-return" title="Permalink to this headline">¶</a></h2>
+<p>Some funds pay their distributions according to a rate applied to the investor’s holdings with a portion of the distribution being accrued daily. This rate is predetermined by the fund, and is known as the bond equivalent return (“BER”) or the bond equivalent yield (“BEY”). To allow an accurate comparison between funds that pay a daily accrued distribution and funds that do not, the BER can be  calculated as:</p>
+<p>IMAGE HERE</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Calculation of Returns</a><ul>
+<li><a class="reference internal" href="#holding-period-return">Holding Period Return</a></li>
+<li><a class="reference internal" href="#effective-annualised-return">Effective Annualised Return</a></li>
+<li><a class="reference internal" href="#bond-equivalent-return">Bond Equivalent Return</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="overview.html"
+                        title="previous chapter">Overview of Mutual Funds</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="benchmark.html"
+                        title="next chapter">Benchmarking</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/calculation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="benchmark.html" title="Benchmarking"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Overview of Mutual Funds"
+             >previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Quincy Alexander.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

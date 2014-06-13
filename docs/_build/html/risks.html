@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Calculation of Risks &mdash; Fund Methodology 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Fund Methodology 1.0 documentation" href="index.html" />
+    <link rel="next" title="Veracity" href="veracity.html" />
+    <link rel="prev" title="Benchmarking" href="benchmark.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="veracity.html" title="Veracity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="benchmark.html" title="Benchmarking"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="calculation-of-risks">
+<h1>Calculation of Risks<a class="headerlink" href="#calculation-of-risks" title="Permalink to this headline">¶</a></h1>
+<p>In accordance with industry standards, risk data are calculated using the trailing 36 monthly holding  period returns. Valuehorizon calculates two basic risk measures: the volatility of excess returns, and the Sharpe ratio.</p>
+<div class="section" id="volatility-of-excess-returns">
+<h2>Volatility of Excess Returns<a class="headerlink" href="#volatility-of-excess-returns" title="Permalink to this headline">¶</a></h2>
+<p>The excess return of a fund in a particular month is the difference between the return on a 90-day risk-free zero-coupon instrument for that month and the holding period return of the fund for that month. Given the 90-day spot rate at the beginning of month t, R90,t the return on a 90-day risk free zero-coupon instrument (also called RF or the “risk free return”) for month t is calculated as:</p>
+<p>IMAGE HERE</p>
+<p>Thus, given the holding period return of the fund in month t, HPRt, the excess return of the fund for month t, ERt, is calculated as follows:</p>
+<p>IMAGE HERE</p>
+<p>After the trailing 36 monthly excess returns are calculated for the fund, the volatility of excess returns can be calculated as:</p>
+<p>IMAGE HERE</p>
+<p>Note that this represents the population standard deviation of monthly excess returns and not the sample standard deviation as evidenced by the use of 36 in the denominator (as opposed to 35).</p>
+<p>One limitation of the volatility of excess returns is that is gives equal weighting to positive and negative monthly returns. However, investors are generally more concerned with downside volatility. A number of alternative risk measures have been developed to address this need, such as drawdown and semivariance. Valuehorizon may switch to one of these alternative measures in the future, but continues to use the simple standard deviation due to its popularity, simplicity of calculation and intuitive interpretation.</p>
+</div>
+<div class="section" id="sharpe-ratio">
+<h2>Sharpe Ratio<a class="headerlink" href="#sharpe-ratio" title="Permalink to this headline">¶</a></h2>
+<p>Instead of just focusing on returns, investors need to be conscious of the risk and volatility they expose themselves to along the way.</p>
+<p>The Sharpe ratio is a measure of risk-adjusted performance and is often described as the reward per unit of variability. It seeks to give a numerical representation of how well the return of an asset compensates an investor given the amount of risk taken. The classic definition of the Sharpe ratio is the mean excess return for the trailing 36 months divided by the volatility of the excess returns over the same time period.</p>
+<p>Mathematically this can be represented as follows:</p>
+<p>IMAGE HERE</p>
+<p>The Sharpe ratio is usually used as a ranking metric. A higher ratio is desirable since it means that the fund gives a better return for a given level of risk (see limitations below).</p>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>Historically, risk has always been difficult to quantify. Modern finance theory uses standard deviation as the de facto risk measurement. The underlying idea is that risk can be equated with volatility.</p>
+<p>Furthermore, the Sharpe ratio is one of the most common risk/return measures. First developed in 1966 by William Sharpe, it has been met with almost equal amounts of acceptance and criticism. There are two main criticisms of the Sharpe ratio:</p>
+<ol class="arabic simple">
+<li>The returns of an investment may not follow a normal distribution. This is especially applicable to actively managed funds that may employ exotic trading or hedging strategies giving rise to skewness and kurtosis in their returns. These may include strategies with small upside returns and the occasional large negative return (so called Black Swan events), investments in illiquid markets, and serially correlated returns. These strategies give rise to higher Sharpe ratios due to the appearance of low volatility or smoothness of returns.</li>
+<li>The Sharpe ratio treats positive returns as equal to negative returns. Many analysts believe that this treatment is unrealistic since investors care more about negative returns than positive returns. The Sharpe ratio penalizes both upside and downside equally. For this reason, some analysts prefer to use the Sortino ratio, which uses the downside semi-variance (i.e. the measurement of return variation below a minimal acceptable return, MAR) as a substitute for regular standard deviation in the denominator. Other analysts prefer a weighted semi-deviation. Some analysts defend the Sharpe ratio, stating that the choice of MAR introduces personal bias - different investors will choose different MARs depending on their level of risk tolerance. In addition, the incorporation of positive returns in the Sharpe ratio may be desired since high returns require high risk. Just because a portfolio with high risk gave a positive return does not mean it could not have produced a high (or even disastrous) loss.</li>
+</ol>
+<p>Despite these potential limitations, Valuehorizon continues to use the Sharpe ratio due to its simplicity, intuitive interpretation, and ease of calculation/verification. Valuehorizon does not currently use the Sortino ratio, nor does it calculate the downside semi-variance.</p>
+<p>There are other alternative risk/return measurements available such as the Jensen’s alpha and Treynor ratio. Both of these measurements are based on the Capital Asset Pricing Model and require relevant benchmarks to compute beta. Valuehorizon does not compute these measurements due to the lack of applicable benchmarks especially in Caribbean markets. Although peer group average benchmarks are produced, they do not satisfy the investability criteria for a relevant benchmark.</p>
+<p>Investors should be aware of these both the pros and cons of using the Sharpe ratio as well as the regular standard deviation as a measure of risk. Particular attention should be paid to actively managed portfolios as well as funds invested in illiquid markets.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Calculation of Risks</a><ul>
+<li><a class="reference internal" href="#volatility-of-excess-returns">Volatility of Excess Returns</a></li>
+<li><a class="reference internal" href="#sharpe-ratio">Sharpe Ratio</a></li>
+<li><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="benchmark.html"
+                        title="previous chapter">Benchmarking</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="veracity.html"
+                        title="next chapter">Veracity</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/risks.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="veracity.html" title="Veracity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="benchmark.html" title="Benchmarking"
+             >previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Quincy Alexander.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

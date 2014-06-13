@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Veracity &mdash; Fund Methodology 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Fund Methodology 1.0 documentation" href="index.html" />
+    <link rel="next" title="Technology" href="technology.html" />
+    <link rel="prev" title="Calculation of Risks" href="risks.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="technology.html" title="Technology"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="risks.html" title="Calculation of Risks"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="veracity">
+<h1>Veracity<a class="headerlink" href="#veracity" title="Permalink to this headline">¶</a></h1>
+<p>Valuehorizon has developed a data quality assurance manual that governs the storage, documentation and testing of its datasets. The following is a basic overview of the steps outlined in the manual to boost the accuracy of its datasets.</p>
+<div class="section" id="procurement">
+<h2>Procurement<a class="headerlink" href="#procurement" title="Permalink to this headline">¶</a></h2>
+<p>In order to prevent human error, the acquisition of data is executed as an automated process where possible. In general data is found via a scheduled task that checks online sources and downloads data via a RESTful API, pdf file sheets or websites with POST or GET variables. This task is executed twice every business day. Historical data are obtained either through official historical quotes (from the web or newspapers of record) or from the fund manager.</p>
+</div>
+<div class="section" id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<p>All raw and processed data points are stored in a relational database. Data is extracted using a object relational mapper. In general, the use of spreadsheets are avoided to prevent data corruption, human error and memory limitations. See section 7.1 for more information.</p>
+</div>
+<div class="section" id="data-scrubbing">
+<h2>Data Scrubbing<a class="headerlink" href="#data-scrubbing" title="Permalink to this headline">¶</a></h2>
+<p>All data are screened for anomalies using vectorised rule-based checks. These include (but are not limited to) the following checks:
+* Are NAVs observed on non-business days?
+* Are NAVs not observed on business days?
+* Are the correct currencies used for NAVs, distributions and financial statement time-series?
+* Have the intra-series missing data points been forward-filled according to the stated methodology?
+* Are there any abnormally large jumps or dips in the observed time-series?</p>
+<p>Duplicate data are rejected via unique constraints at the database level. Outlier data points are found using an elliptical envelope algorithm. These flagged outliers are temporarily removed from the dataset and verified with the fund manager and/or alternative source documentation.</p>
+</div>
+<div class="section" id="source-documentation">
+<h2>Source Documentation<a class="headerlink" href="#source-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The Valuehorizon Document Engine™ was built to support the sources of its datasets. Each raw data point is linked to a source document which is stored in pdf format and has a unique identification code. Valuehorizon allows subscribers to inspect all non-confidential source documents.</p>
+</div>
+<div class="section" id="data-auditing">
+<h2>Data Auditing<a class="headerlink" href="#data-auditing" title="Permalink to this headline">¶</a></h2>
+<p>Valuehorizon audits its data time series on the first day of every month. A 0.5% sample is selected and verified by humans. The sample is chosen algorithmically so that it is  spread equally over the life of the time-series. The audit samples in subsequent months are selected to exclude the prior verified data points.</p>
+</div>
+<div class="section" id="return-verification">
+<h2>Return Verification<a class="headerlink" href="#return-verification" title="Permalink to this headline">¶</a></h2>
+<p>Most funds publish their annual or quarterly returns. Valuehorizon uses these returns as a cross check to see whether the computed returns are accurate. Furthermore, Valuehorizon owns roughly 90% of the funds tracked. Thus, actual account statement returns may be used in lieu of published returns for the purpose of return verification.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Veracity</a><ul>
+<li><a class="reference internal" href="#procurement">Procurement</a></li>
+<li><a class="reference internal" href="#storage">Storage</a></li>
+<li><a class="reference internal" href="#data-scrubbing">Data Scrubbing</a></li>
+<li><a class="reference internal" href="#source-documentation">Source Documentation</a></li>
+<li><a class="reference internal" href="#data-auditing">Data Auditing</a></li>
+<li><a class="reference internal" href="#return-verification">Return Verification</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="risks.html"
+                        title="previous chapter">Calculation of Risks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="technology.html"
+                        title="next chapter">Technology</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/veracity.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="technology.html" title="Technology"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="risks.html" title="Calculation of Risks"
+             >previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Quincy Alexander.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

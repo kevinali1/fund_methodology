@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Benchmarking &mdash; Fund Methodology 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Fund Methodology 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Calculation of Returns" href="calculation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="calculation.html" title="Calculation of Returns"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="benchmarking">
+<h1>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h1>
+<p>Quantifying the risks and returns of a fund in isolation is not sufficient to fully appreciate its performance. Performance statistics should be evaluated against that of other comparable funds. A benchmark is a reference time-series which seeks to provide this comparison. Valuehorizon tracks and/or calculates three types of benchmarks: strategy indexes, peer-group averages, and risk free rates.</p>
+<div class="section" id="strategy-indexes">
+<h2>Strategy Indexes<a class="headerlink" href="#strategy-indexes" title="Permalink to this headline">¶</a></h2>
+<p>Strategy Indexes refer to market-weighted, price-weighted, or equal weighted benchmarks prepared by companies such as Standard and Poor’s, MSCI, or Dow Jones. These indexes are prepared and published daily. Where possible, the total-return, equal-weighted version of the benchmark will be used. As at April 30, 2013, Valuehorizon tracks 79 strategy indexes. Valuehorizon does not compute these indexes. Furthermore, these indexes are provided solely for comparison and are not used in the calculation of any risk measures.</p>
+</div>
+<div class="section" id="peer-group-averages">
+<h2>Peer Group Averages<a class="headerlink" href="#peer-group-averages" title="Permalink to this headline">¶</a></h2>
+<p>A peer group average benchmark is computed for each peer group. It is a time-series representing the equivalent of a theoretical equal-weighted investment in each fund’s primary class in the peer group with daily rebalancing applied. Each peer group average is set to 1000 on a predetermined  start date and computed by applying the average daily returns of each fund class in the investment. The peer group averages are provided solely for comparison and are not used in the calculation of any risk measures. Valuehorizon reserves the right to retroactively change the average via changes in the makeup of the peer-groups.</p>
+<p>Mathematically, it can be calculated as follows:</p>
+<p>IMAGE HERE</p>
+<p>Where Pt is the peer group average value, HPRi,t is the holding period return of fund i from t to t + 1, and n is the number of funds in the peer group on t.</p>
+<p>For peer groups that are subdivided into sub-peer groups, a sub-peer group average will also be calculated and used as the preferred benchmarks. The sub-peer group average is calculated using the same methodology as the peer group average.</p>
+</div>
+<div class="section" id="risk-free-rates">
+<h2>Risk Free Rates<a class="headerlink" href="#risk-free-rates" title="Permalink to this headline">¶</a></h2>
+<p>As stated previously, each fund class is associated with a primary currency. As at April 30, 2013, Valuehorizon tracks funds trading in Trinidad and Tobago Dollars, United States Dollars and Euros, labelled in their ISO 4217 currency codes (TTD, USD and EUR respectively). A risk free yield curve is generated for each of these currencies by interpolating a  spectrum of market yields using a cubic spline algorithm. However, the singular risk free rate used as a benchmark is the 30-day rate. These risk free rate benchmarks are used in the computation of fund-risk measures such as Excess Return Volatility and the Sharpe Ratio.</p>
+<p>The USD yield curve data are obtained from the United States Department of the Treasury on a daily basis. The EUR yield curve data are obtained from the European Central Bank on a daily basis. The TTD yield curve is generated monthly using yields obtained from market sources and interpolated for intra-month days using a cubic-spline algorithm. Valuehorizon currently does not disclose the source of its TTD yields.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Benchmarking</a><ul>
+<li><a class="reference internal" href="#strategy-indexes">Strategy Indexes</a></li>
+<li><a class="reference internal" href="#peer-group-averages">Peer Group Averages</a></li>
+<li><a class="reference internal" href="#risk-free-rates">Risk Free Rates</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="calculation.html"
+                        title="previous chapter">Calculation of Returns</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/benchmark.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="calculation.html" title="Calculation of Returns"
+             >previous</a> |</li>
+        <li><a href="contents.html">Fund Methodology 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Quincy Alexander.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
